@@ -15,12 +15,12 @@ RUN mvn package -DskipTests
 # https://hub.docker.com/_/openjdk
 # https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
 #FROM openjdk:11.0.16-jre-slim
-#FROM openjdk:18-ea-1-jdk-slim#
+FROM openjdk:18-ea-1-jdk-slim
 #FROM tomcat
 
 #COPY ROOT.war /usr/local/tomcat/webapps/
 
-FROM maven:3-openjdk-18-slim
+#FROM maven:3-openjdk-18-slim
 #FROM mcr.microsoft.com/playwright/java:v1.39.0-jammy
 # Copy the jar to the production image from the builder stage.
 COPY --from=build-env /app/target/GameZoneJwt*.war /GameZoneJwt.war
