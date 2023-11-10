@@ -13,7 +13,7 @@
 <script src="webjars/jquery-ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet"  href="webjars/bootstrap/4.5.0/css/bootstrap.min.css">
 
-<script src="webjars/bootstrap/4.5.0/js/bootstrap.bundle.min.js"x</script.
+<script src="webjars/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script.
 
 
 <link rel="stylesheet" href="webjars/bootstrap-select/1.13.18/css/bootstrap-select.css" />
