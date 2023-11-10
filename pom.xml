@@ -190,10 +190,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
+
     </dependencies>
     <build>
 
@@ -213,7 +210,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.gamingzone.redeem.SpringBootSessionApplication</mainClass>
+                    <mainClass>com.gamezone.jwt.SpringBootSessionApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
