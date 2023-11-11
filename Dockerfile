@@ -15,7 +15,8 @@ RUN mvn package -DskipTests
 # https://hub.docker.com/_/openjdk
 # https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds
 #FROM openjdk:11.0.16-jre-slim
-FROM openjdk:18-ea-1-jdk-slim
+#FROM openjdk:18-ea-1-jdk-slim
+FROM openjdk:19-alpine
 #FROM tomcat
 
 #COPY ROOT.war /usr/local/tomcat/webapps/
