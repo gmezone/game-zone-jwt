@@ -38,7 +38,9 @@ public class SecurityConfiguration {
                 .exceptionHandling(configurer -> configurer.authenticationEntryPoint(unauthorizedHandler))
                 .securityMatcher("/**")
                 .authorizeHttpRequests(registry -> registry
-                        .requestMatchers( AntPathRequestMatcher.antMatcher("/public/**") ).permitAll()
+                        .requestMatchers( AntPathRequestMatcher.antMatcher("/resources/**") ).permitAll()
+                        .requestMatchers( AntPathRequestMatcher.antMatcher("/webjars/**") ).permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)
