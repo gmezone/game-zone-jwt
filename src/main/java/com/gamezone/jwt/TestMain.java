@@ -68,7 +68,9 @@ public class TestMain {
         String serializedJwe = jwe.getCompactSerialization();
         System.out.println("serializedJwe: " + serializedJwe);
         System.out.println(signer);
+
         String token = JwtHelper.encode(serializedJwe,signer).getEncoded();
+        // token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.ZXlKaGJHY2lPaUpCTVRJNFMxY2lMQ0psYm1NaU9pSkJNVEk0UTBKRExVaFRNalUySWl3aWVtbHdJam9pUkVWR0luMC55MTdkcFpZUGpjVjR2c0p2MmhmMlZnQXRXR2hsTGYtRDJ5N29zRDhMOXZXQ0dGSnN4NzZzSlEuajRLTF9JMUdQTDVsNk9BMUpKejNTZy5lYi1xbkE4bDhGS1Vsd0xlOFZ2ZU1TTVFlZ0JIdkZXWnZ5UVo1dDI1bTlzeUxWLVYtNVkzNXAtS3VfbVFac3FDLmt1MmhYS2I4eGZNTVF5TDBGaVF0cnc.SkxecVUKLcjEep6lYavsFbpl5y75a6sNt-9japfOOXrTT1VeSn5cOZ7vsaLo-jrJq6CEBqjhLby_GKVjS2GR-4g1-I-6HJ0Y27zJjPXHrJRiQKxBYrJrsPq5y7uraFkE1BclW62PSrC1xWFlmx_sV6GT0E9qZn1vn8iw8mF1Im9FHNhbKg6M_kXM-WP2kgRFUdbbCvC7D4esF4RpXM7_QZm3jeF4d3KsqzlaNHEaIgiLwQK490W7R_PlHibC9yEkaFn1TQVqymWyWI8z8h5qvrJ8zrCSJQsEhVyIwLjUf6OWDCaJ8_eE6aism4FbDLZUg/VWxku7Zxi9m8f0XZTJrwQ";
         System.out.println("token=" + token);
         Jwt jwt = JwtHelper.decodeAndVerify(token,verifier);
         System.out.println("jwt: " + jwt);

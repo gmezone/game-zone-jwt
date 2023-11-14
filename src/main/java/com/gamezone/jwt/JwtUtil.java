@@ -6,6 +6,7 @@ import org.jose4j.jwe.JsonWebEncryption;
 import org.jose4j.jwe.KeyManagementAlgorithmIdentifiers;
 import org.jose4j.keys.AesKey;
 import org.json.JSONObject;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
@@ -26,8 +27,8 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
 import java.util.Date;
 import java.util.Map;
-import java.util.Objects;
 
+@Configuration
 public class JwtUtil {
     private static final String KEY_STRING = "GtdPvDfyfegbARYG";
     private static final String EXP = "exp";
@@ -39,6 +40,7 @@ public class JwtUtil {
         setKeyPair();
     }
     static public void setKeyPair(){
+        System.out.println("setKeyPair");
         KeyStoreKeyFactory keyStoreKeyFactory = new KeyStoreKeyFactory(new ClassPathResource("jwt.jks"),
                 "GameZoneQ!W@".toCharArray());
         KeyPair keyPair = keyStoreKeyFactory.getKeyPair("jwt");
@@ -48,11 +50,12 @@ public class JwtUtil {
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
         verifier = new RsaVerifier(publicKey);
     }
-    static public String encode(String content){
+    static public String encode(String content, int expireMinutes){
         System.out.println("content =" + content);
         JSONObject jsonObject = new JSONObject(content);
         Date extDate = new Date();
-        long exTime  =(extDate.getTime() /1000L) + 360;
+        System.out.println("expireMinutes:" + expireMinutes);
+        long exTime  =(extDate.getTime() /1000L) + 60 * expireMinutes;
         jsonObject.remove(EXP);
         jsonObject.put(EXP,exTime);
         content = jsonObject.toString();

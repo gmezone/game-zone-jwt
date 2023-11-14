@@ -4,6 +4,7 @@ package com.gamezone.jwt;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,11 +18,13 @@ import java.util.Map;
 @RestController
 public class JwtRestController {
     protected Logger logger = LoggerFactory.getLogger(JwtRestController.class);
+    @Value("${expire.minutes}")
+    private   int expireMinutes;
 
     @PostMapping("token")
     public String token(@RequestBody String json) throws ParseException {
-        System.out.println("createJws:" + json );
-        String token = JwtUtil.encode(json);
+        System.out.println("expireMinutes:" + expireMinutes );
+        String token = JwtUtil.encode(json, expireMinutes);
         return  token;
     }
     @RequestMapping(value = "/check_token" , produces ={"application/json"})
