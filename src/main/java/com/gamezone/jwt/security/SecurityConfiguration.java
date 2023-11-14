@@ -40,6 +40,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(registry -> registry
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/resources/**") ).permitAll()
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/webjars/**") ).permitAll()
+                        .requestMatchers( AntPathRequestMatcher.antMatcher("/css/**") ).permitAll()
 
                         .anyRequest().authenticated()
                 )
