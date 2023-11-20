@@ -22,9 +22,11 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+         http.headers().frameOptions().disable();
         return http
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
+
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.NEVER))
 
                 //.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
@@ -41,7 +43,6 @@ public class SecurityConfiguration {
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/resources/**") ).permitAll()
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/webjars/**") ).permitAll()
                         .requestMatchers( AntPathRequestMatcher.antMatcher("/css/**") ).permitAll()
-
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(authFilter, UsernamePasswordAuthenticationFilter.class)

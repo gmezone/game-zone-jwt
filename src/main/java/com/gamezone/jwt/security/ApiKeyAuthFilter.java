@@ -23,6 +23,7 @@ public class ApiKeyAuthFilter extends OncePerRequestFilter {
         extractor.extract(request)
                 .ifPresent(SecurityContextHolder.getContext()::setAuthentication);
 
+
         filterChain.doFilter(request, response);
     }
 }
