@@ -57,7 +57,9 @@ public class JwtUtil {
         System.out.println("expireMinutes:" + expireMinutes);
         long exTime  =(extDate.getTime() /1000L) + 60 * expireMinutes;
         jsonObject.remove(EXP);
-        jsonObject.put(EXP,exTime);
+        if (expireMinutes > -1) {
+            jsonObject.put(EXP, exTime);
+        }
         content = jsonObject.toString();
         String serializedJwe;
         try{

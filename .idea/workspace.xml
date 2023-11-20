@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="62c0960e-611a-4dcd-bef6-ad69808cfb7c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/JwtRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/JwtRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/ApiKeyAuthExtractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/ApiKeyAuthExtractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/ApiKeyAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/ApiKeyAuthFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/UnauthorizedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/gamezone/jwt/security/UnauthorizedHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/jwt.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/jwt.jsp" afterDir="false" />
     </list>
@@ -247,7 +250,21 @@
       <option name="project" value="LOCAL‎" />
       <updated>1699980392416</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL‎-00012" summary="aaa">
+      <created>1700460482374</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL‎-00012" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1700460482374</updated>
+    </task>
+    <task id="LOCAL‎-00013" summary="aaa">
+      <created>1700461551153</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL‎-00013" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1700461551153</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -300,7 +317,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/gamezone/jwt/JwtUtil.java</url>
-          <line>78</line>
+          <line>80</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -311,7 +328,7 @@
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
-      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/com/gamezone/jwt/JwtUtil.java" line="77">
+      <inline-watch fileUrl="file://$PROJECT_DIR$/src/main/java/com/gamezone/jwt/JwtUtil.java" line="79">
         <watch expression="token" />
       </inline-watch>
     </watches-manager>

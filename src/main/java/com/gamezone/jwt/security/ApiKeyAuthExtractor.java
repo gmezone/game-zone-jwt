@@ -18,8 +18,10 @@ public class ApiKeyAuthExtractor {
         if (providedKey == null || !providedKey.equals(apiKey)){
             providedKey = request.getParameter("ApiKey");
         }
-        if (providedKey == null || !providedKey.equals(apiKey))
+        if (providedKey == null || !providedKey.equals(apiKey)) {
+           // throw new RuntimeException("not authorize") ;
             return Optional.empty();
+        }
 
         return Optional.of(new ApiKeyAuth(providedKey, AuthorityUtils.NO_AUTHORITIES));
     }

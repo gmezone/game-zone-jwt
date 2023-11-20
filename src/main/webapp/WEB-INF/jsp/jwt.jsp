@@ -239,6 +239,25 @@
                 })
              });
 
+            $('#CreateNoExpire').click(function() {
+            var dataCreate = $('#dataCreate').val();
+            $.ajax({
+                    type: 'POST' ,
+                    contentType : 'application/json' ,
+                    url:  '/tokenNoExpire',
+                    data: dataCreate,
+                    dataType : 'text',
+                    success : function(data) {
+                        $('#resultCreate').val(data);
+                        $('#dataDecode').val(data);
+                    },
+                    error : function(xhr, status, error) {
+                        var err=eval("(" + xhr.responseText +")");
+                        alert(err.message);
+                    }
+                })
+             });
+
             $('#Decode').click(function() {
                 var dataDecode = $('#dataDecode').val();
                 $.ajax({
@@ -283,6 +302,11 @@
                     <button type-"button" class="btn btn-primary add-new" id="Create">
                         <i class="fa"></i>Create
                     </button>
+                    <br/>
+                    <button type-"button" class="btn btn-primary add-new" id="CreateNoExpire">
+                                            <i class="fa"></i>Create No Expire
+                                        </button>
+
                </div>
               <div class="col-sm-12">
                    <textarea class="form-control" id="resultCreate"

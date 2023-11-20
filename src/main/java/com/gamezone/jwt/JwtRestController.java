@@ -27,6 +27,12 @@ public class JwtRestController {
         String token = JwtUtil.encode(json, expireMinutes);
         return  token;
     }
+
+    @PostMapping("tokenNoExpire")
+    public String tokenNoExpire(@RequestBody String json) throws ParseException {
+        String token = JwtUtil.encode(json, -1);
+        return  token;
+    }
     @RequestMapping(value = "/check_token" , produces ={"application/json"})
     public ResponseEntity<String> check_token(@RequestBody String object){
         System.out.println("check_token: " + object);

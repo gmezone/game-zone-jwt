@@ -20,9 +20,20 @@ public class ApiKeyAuthFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        extractor.extract(request)
-                .ifPresent(SecurityContextHolder.getContext()::setAuthentication);
+        if(SecurityContextHolder.getContext().getAuthentication() == null) {
+           // try {
+                System.out.println("----1----------");
+                extractor.extract(request)
+                        .ifPresent(SecurityContextHolder.getContext()::setAuthentication);
+                System.out.println("----2----------");
 
+//            }catch (Exception e){
+
+              //  e.printStackTrace();
+             //   System.out.println( e.getClass());
+           // }
+
+        }
 
         filterChain.doFilter(request, response);
     }
