@@ -50,7 +50,7 @@ public class JwtUtil {
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
         verifier = new RsaVerifier(publicKey);
     }
-    static public String encode(String content, int expireMinutes){
+    static public String encode(String content, long expireMinutes){
         System.out.println("content =" + content);
         JSONObject jsonObject = new JSONObject(content);
         Date extDate = new Date();

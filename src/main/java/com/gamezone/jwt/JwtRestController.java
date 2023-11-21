@@ -19,7 +19,7 @@ import java.util.Map;
 public class JwtRestController {
     protected Logger logger = LoggerFactory.getLogger(JwtRestController.class);
     @Value("${expire.minutes}")
-    private   int expireMinutes;
+    private   long expireMinutes;
 
     @PostMapping("token")
     public String token(@RequestBody String json) throws ParseException {
@@ -31,6 +31,12 @@ public class JwtRestController {
     @PostMapping("tokenNoExpire")
     public String tokenNoExpire(@RequestBody String json) throws ParseException {
         String token = JwtUtil.encode(json, -1);
+        return  token;
+    }
+
+    @PostMapping("tokenWithExpire")
+    public String tokenWithExpire(@RequestBody String json , long expireMinutes ) throws ParseException {
+        String token = JwtUtil.encode(json, expireMinutes);
         return  token;
     }
     @RequestMapping(value = "/check_token" , produces ={"application/json"})
