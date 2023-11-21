@@ -7,10 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.Map;
@@ -34,8 +31,9 @@ public class JwtRestController {
         return  token;
     }
 
-    @PostMapping("tokenWithExpire")
-    public String tokenWithExpire(@RequestBody String json , long expireMinutes ) throws ParseException {
+
+    @RequestMapping(value = "/tokenWithExpire/{expireMinutes}" , produces ={"application/json"})
+    public String tokenWithExpire(@RequestBody String json ,  @PathVariable(value = "expireMinutes") long expireMinutes ) throws ParseException {
         String token = JwtUtil.encode(json, expireMinutes);
         return  token;
     }
